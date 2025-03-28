@@ -24,6 +24,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Run Maven build
+                bat 'cd client'
                 bat 'mvn clean install'
             }
         }
