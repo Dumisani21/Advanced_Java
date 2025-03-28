@@ -21,31 +21,49 @@ pipeline {
                 git url: 'https://github.com/Dumisani21/Advanced_Java', branch: 'main', credentialsId: 'your-credentials-id'
             }
         }
-        stage('Build') {
+
+        stage('Build Client') {
             steps {
                 // Run Maven build
                 bat '''cd client
                 mvn clean install
                 '''
-                // bat 'cd client'
-                // bat 'mvn clean install'
             }
         }
-        stage('Test') {
+
+        stage('Test Client') {
             steps {
                 // Run Maven tests
                 bat '''cd client
                 mvn test
                 '''
-                // bat 'mvn test'
             }
         }
-        stage('Deploy') {
+
+              stage('Build Server') {
             steps {
-                // Deploy your application (this is just an example, adjust to your needs)
-                bat 'mvn deploy'
+                // Run Maven build
+                bat '''cd server
+                mvn clean install
+                '''
             }
         }
+        
+        stage('Test Server') {
+            steps {
+                // Run Maven tests
+                bat '''cd server
+                mvn test
+                '''
+            }
+        }
+
+        // stage('Deploy') {
+        //     steps {
+        //         // Deploy your application (this is just an example, adjust to your needs)
+        //         bat 'mvn deploy'
+        //     }
+        // }
     }
 
     post {
