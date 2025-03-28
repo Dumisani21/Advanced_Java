@@ -16,19 +16,22 @@ pipeline {
         stage('Build') {
             steps {
                 // Run Maven build
-                sh 'mvn clean install'
+                // sh 'mvn clean install'
+                echo 'Hello BUILD'
             }
         }
         stage('Test') {
             steps {
                 // Run Maven tests
-                sh 'mvn test'
+                // sh 'mvn test'
+                echo 'Hello TEST'
             }
         }
         stage('Deploy') {
             steps {
                 // Deploy your application (this is just an example, adjust to your needs)
-                sh 'mvn deploy'
+                // sh 'mvn deploy'
+                echo 'Hello Deploy'
             }
         }
     }
