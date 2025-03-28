@@ -9,9 +9,6 @@ pipeline {
     //     }
     // }
 
-    pipeline {
-    agent any
-
     tools {
         // Install the Maven version configured as "M3" in Jenkins
         maven 'M3'
@@ -52,7 +49,6 @@ pipeline {
             junit 'target/surefire-reports/*.xml'
         }
     }
-}
 
     // tools {
     //     // Install the Maven version configured as "M3" in Jenkins
