@@ -24,14 +24,20 @@ pipeline {
         stage('Build') {
             steps {
                 // Run Maven build
-                bat 'cd client'
-                bat 'mvn clean install'
+                bat '''cd client
+                mvn clean install
+                '''
+                // bat 'cd client'
+                // bat 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
                 // Run Maven tests
-                bat 'mvn test'
+                bat '''cd client
+                mvn test
+                '''
+                // bat 'mvn test'
             }
         }
         stage('Deploy') {
